@@ -1,0 +1,15 @@
+* Hash Table Notes
+** A hash table is a data structure taht stores unordered items by mapping (or hashing) each item to a location in an array (or vector)
+** In a hash table, an item's key is the value used to map to an index (unique)
+** Each hash table array element is called a bucket
+** A hash function computes a bucket index from the item's key
+** A common hash function uses the modulo operator %, which computes the integer remainder when dividing two numbers
+*** For example, a 20 element hash table, a hash function key % 20 will map keys to bucket indices 0 to 19
+** A collision occurs when an item being inserted into a hash table maps to the same bucket as an existing item in the hash table
+*** For example, For a hash function of key % 10, 55 would be inserted into bucket 55 % 10 = 5; later inserting 75 would yield a collision because 75 % 10 is also 5
+** One method of avoiding collisions is the use of chaining
+*** Chaining is a collision resolution technique where each bucket has a list of items (so bucket 5's list would become 55, 75)
+*** Open Addressing is a collision resolution technique where collisions are resolved by looking for an empty bucket elsewhere in the table (75 might be stored in bucket 6)
+** Chaining handles hash table collisions by using a list for each bucket, where each list may store multiple items that map to the same bucket.
+*** The insert operation first uses the item's key to determing the bucket, and then inserts the item in that bucket's list.
+*** Searching also first determines the bucket, and then searches the bucket's list. Likewise for removes.
